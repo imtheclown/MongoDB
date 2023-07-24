@@ -194,13 +194,14 @@ async function main() {
         })
         // insert each of the barangays in the database
     await insertBarangayToDB(barangayList).then(() => {
-        // no problem encountered
-        console.log("All are saved")
-    }).catch((error) => {
-        // encountered some problem
-        console.log(error.message)
-        console.log("error saving in database")
-    })
+            // no problem encountered
+            console.log("All are saved")
+        }).catch((error) => {
+            // encountered some problem
+            console.log(error.message)
+            console.log("error saving in database")
+        })
+        // closes the mongoose connection
     mongoose.connection.close();
 }
 main()

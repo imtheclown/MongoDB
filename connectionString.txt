@@ -1,0 +1,8 @@
+connection string for access via application
+mongodb+srv://jccalugas:Hello-World14@practicecluster.fvlgq6r.mongodb.net/?retryWrites=true&w=majority
+
+connection string via mongosh
+mongosh "mongodb+srv://practicecluster.fvlgq6r.mongodb.net/" --apiVersion 1 --username jccalugas
+
+connection string for mongodb compass
+mongodb+srv://jccalugas:<password>@practicecluster.fvlgq6r.mongodb.net/

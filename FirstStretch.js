@@ -86,37 +86,38 @@ async function getEachBarangay(arrayParam, province) {
     const error = []
         // creates a promise for each combination of province and municipality
     const promiseList = arrayParam.map(municipality => {
-            return new Promise((resolve, reject) => {
-                axiosInstance({
-                    method: "GET",
-                    url: `${mainURL}?parentOption=${province}&childOption=${municipality}`.replace(" ", "%20"),
-                }).then(res => {
-                    // if data retrieval is successful
-                    resolve({
-                        "data": res.data.data,
-                        "province": province,
-                        "municipality": municipality,
-                        "successful": true
-                    })
-                }).catch(err => {
-                    // if data retrieval is successful
-                    if (err.response) {
-                        resolve({
-                            "successful": false,
-                            "municipality": municipality
-                        })
-                    } else if (err.request) {
-                        console.log("failure")
-                        console.log(err.request)
-                        reject(err)
-                    } else {
-                        console.log("failure")
-                        reject(err)
-                    }
+        return new Promise((resolve, reject) => {
+            axiosInstance({
+                method: "GET",
+                url: `${mainURL}?parentOption=${province}&childOption=${municipality}`.replace(" ", "%20"),
+            }).then(res => {
+                // if data retrieval is successful
+                resolve({
+                    "data": res.data.data,
+                    "province": province,
+                    "municipality": municipality,
+                    "successful": true
                 })
+            }).catch(err => {
+                // if data retrieval is successful
+                if (err.response) {
+                    resolve({
+                        "successful": false,
+                        "municipality": municipality
+                    })
+                } else if (err.request) {
+                    console.log("failure")
+                    console.log(err.request)
+                    reject(err)
+                } else {
+                    console.log("failure")
+                    reject(err)
+                }
             })
         })
-        // executes and waits for each of the generated promise above
+    })
+
+    // executes and waits for each of the generated promise above
     for (promise in promiseList) {
         await promiseList[promise].then(res => {
             result.push(res)

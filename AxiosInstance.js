@@ -47,5 +47,4 @@ function axiosPromiseCreator(url) {
         })
     }
 }
-
 module.exports = { axiosInstance, axiosPromiseCreator }

@@ -1,7 +1,7 @@
 const { firstURL } = require("./constants")
 const { barangayInProvinceGetter } = require("./FirstStretch")
 const { axiosPromiseCreator } = require("./AxiosInstance")
-
+    // second stretch
 async function SecondStretch() {
     // retrieves list of provinces
     const provinces = await axiosPromiseCreator(firstURL).then(res => {

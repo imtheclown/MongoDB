@@ -26,11 +26,9 @@ const BarangaySchema = new mongoose.Schema({
     name: String,
     _id: String
 })
-
 const ProvinceModel = new mongoose.model('Provinces', ProvinceSchema)
 const MunicipalityModel = new mongoose.model('Municipalities', MunicipalitySchema)
 const BarangayModel = new mongoose.model('Barangays', BarangaySchema)
-
 module.exports = {
     ProvinceModel,
     MunicipalityModel,
